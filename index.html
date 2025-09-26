@@ -19,6 +19,12 @@
             scroll-snap-type: y mandatory;
             overflow-y: scroll;
             height: 100vh;
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .snap-container::-webkit-scrollbar {
+            display: none;
         }
         /* Each direct child section of the container is a snap point */
         .snap-section {
@@ -62,14 +68,14 @@
 
         <!-- Section 1: Landing Page -->
         <section class="snap-section bg-cover bg-center" style="background-image: linear-gradient(rgba(5, 10, 26, 0.85), rgba(5, 10, 26, 0.85)), url('https://images.unsplash.com/photo-1590324816287-e2c72b0c3f58?q=80&w=2070&auto=format&fit=crop');">
-            <div class="text-center p-8">
+            <div class="text-center p-4 sm:p-8">
                 <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
                     Breed Recognition for <span class="gradient-text">Cattle and Buffaloes</span> of India
                 </h1>
                 <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
                     An AI-powered mobile solution to identify and support India's diverse livestock breeds.
                 </p>
-                <a href="https://github.com/Bhanu7773-dev/Project_breed_identification/releases/download/v1.0.1-beta/app-arm64-v8a-release.apk" class="bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all transform hover:scale-210 duration-300 ease-in-out shadow-lg shadow-sky-500/30">
+                <a href="https://github.com/Bhanu7773-dev/Project_breed_identification/releases/download/v1.0.1-beta/app-arm64-v8a-release.apk" class="bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all transform hover:scale-110 duration-300 ease-in-out shadow-lg shadow-sky-500/30">
                     Download the App
                 </a>
             </div>
@@ -81,12 +87,12 @@
 
         <!-- Section 2: App Details & USPs -->
         <section class="snap-section bg-[#050A1A] overflow-y-auto">
-            <div class="container mx-auto px-6 py-12 lg:py-24 max-w-7xl w-full">
+            <div class="container mx-auto px-4 sm:px-6 py-12 lg:py-24 max-w-7xl w-full">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Left Column: Animated App Mockup -->
                     <div class="flex justify-center items-center">
                          <!-- Phone Frame -->
-                        <div class="relative w-[300px] h-[600px] bg-slate-800 rounded-3xl border-4 border-slate-700 shadow-2xl shadow-indigo-500/20 overflow-hidden flex justify-center items-center">
+                        <div class="relative w-[280px] h-[560px] sm:w-[300px] sm:h-[600px] bg-slate-800 rounded-3xl border-4 border-slate-700 shadow-2xl shadow-indigo-500/20 overflow-hidden flex justify-center items-center">
                             <!-- Phone Notch -->
                             <div class="absolute top-0 w-full h-6 bg-slate-800 rounded-t-2xl flex justify-center items-center z-10">
                                 <div class="w-12 h-2 bg-slate-900 rounded-full"></div>
@@ -124,7 +130,7 @@
                     </div>
                     <!-- Right Column: USPs & Features -->
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Built for the Field</h2>
+                        <h2 class="text-2xl md:text-4xl font-bold mb-4 gradient-text">Built for the Field</h2>
                         <p class="text-slate-300 mb-6 leading-relaxed">
                             Our Flutter app uses advanced AI to instantly recognize cattle and buffalo breeds from a single image. The farmer-friendly interface works in both English and Hindi.
                         </p>
@@ -144,12 +150,12 @@
 
         <!-- Section 3: How It Works -->
         <section class="snap-section bg-[#050A1A]" style="background-image: radial-gradient(circle at bottom, #1E293B, #050A1A 60%);">
-            <div class="text-center p-8 max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="gradient-text">Simple Steps</span></h2>
+            <div class="text-center p-4 sm:p-8 max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4"><span class="gradient-text">Simple Steps</span></h2>
                 <p class="text-slate-400 mb-12">Get breed insights in seconds. It's as easy as one, two, three.</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Step 1 -->
-                    <div class="glass-card p-8 rounded-2xl text-center">
+                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center">
                         <div class="mb-4 text-sky-400">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
@@ -157,7 +163,7 @@
                         <p class="text-slate-400 text-sm">Use your phone's camera to take a clear photo of the cattle or buffalo.</p>
                     </div>
                     <!-- Step 2 -->
-                    <div class="glass-card p-8 rounded-2xl text-center">
+                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center">
                         <div class="mb-4 text-sky-400">
                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V4m0 16v-2M12 12l9-9-9 9z" /></svg>
                         </div>
@@ -165,7 +171,7 @@
                         <p class="text-slate-400 text-sm">Our powerful Gemini AI model analyzes the image to identify the breed instantly.</p>
                     </div>
                     <!-- Step 3 -->
-                    <div class="glass-card p-8 rounded-2xl text-center">
+                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center">
                         <div class="mb-4 text-sky-400">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                         </div>
@@ -178,13 +184,13 @@
 
         <!-- Section 4: The Team -->
         <section class="snap-section bg-[#050A1A]">
-            <div class="text-center p-8 max-w-4xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold mb-10"><span class="gradient-text">Meet the Innovators</span></h2>
-                <div class="glass-card rounded-2xl p-8 md:p-12">
+            <div class="text-center p-4 sm:p-8 max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-10"><span class="gradient-text">Meet the Innovators</span></h2>
+                <div class="glass-card rounded-2xl p-6 sm:p-8 md:p-12">
                     <h3 class="text-2xl font-semibold text-white">Team XYZ</h3>
                     <p class="text-lg text-slate-400 mb-8">IPS College, Jaipur</p>
                     
-                    <div id="team-members-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 text-slate-200 font-semibold text-lg mb-10">
+                    <div id="team-members-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 text-slate-200 font-semibold text-base sm:text-lg mb-10">
                         <!-- Names will be dynamically inserted here -->
                     </div>
 
@@ -251,5 +257,4 @@
 
 </body>
 </html>
-
 
