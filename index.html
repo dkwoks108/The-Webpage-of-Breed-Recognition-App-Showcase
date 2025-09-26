@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breed Recognition for Cattle and Buffaloes of India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050A1A; /* Deep Navy Background */
+            color: #E2E8F0; /* Light Slate text for contrast */
+        }
+        /* This container enables the snap scrolling effect */
+        .snap-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        /* Each direct child section of the container is a snap point */
+        .snap-section {
+            scroll-snap-align: start;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden; /* Hide overflow to prevent scrollbars within sections */
+        }
+        /* Custom gradient text for a premium feel */
+        .gradient-text {
+            background: linear-gradient(to right, #38BDF8, #818CF8); /* Sky Blue to Indigo */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* Premium glassmorphism card style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        /* Styles for the phone animation states */
+        .phone-screen-state {
+            position: absolute;
+            inset: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="snap-container">
+
+        <!-- Section 1: Landing Page -->
+        <section class="snap-section bg-cover bg-center" style="background-image: linear-gradient(rgba(5, 10, 26, 0.85), rgba(5, 10, 26, 0.85)), url('https://images.unsplash.com/photo-1590324816287-e2c72b0c3f58?q=80&w=2070&auto=format&fit=crop');">
+            <div class="text-center p-8">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Breed Recognition for <span class="gradient-text">Cattle and Buffaloes</span> of India
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
+                    An AI-powered mobile solution to identify and support India's diverse livestock breeds.
+                </p>
+                <a href="app-arm64-v8a-release.apk" download="BreedRecognitionApp.apk" class="bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all transform hover:scale-110 duration-300 ease-in-out shadow-lg shadow-sky-500/30">
+                    Download the App
+                </a>
+            </div>
+            <!-- Scroll down indicator -->
+            <div class="absolute bottom-10 animate-bounce">
+                <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+        </section>
+
+        <!-- Section 2: App Details & USPs -->
+        <section class="snap-section bg-[#050A1A] overflow-y-auto">
+            <div class="container mx-auto px-6 py-12 lg:py-24 max-w-7xl w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Column: Animated App Mockup -->
+                    <div class="flex justify-center items-center">
+                         <!-- Phone Frame -->
+                        <div class="relative w-[300px] h-[600px] bg-slate-800 rounded-3xl border-4 border-slate-700 shadow-2xl shadow-indigo-500/20 overflow-hidden flex justify-center items-center">
+                            <!-- Phone Notch -->
+                            <div class="absolute top-0 w-full h-6 bg-slate-800 rounded-t-2xl flex justify-center items-center z-10">
+                                <div class="w-12 h-2 bg-slate-900 rounded-full"></div>
+                            </div>
+                            <!-- Phone Screen Content -->
+                            <div class="w-full h-full bg-slate-900">
+                                <!-- State 1: Camera -->
+                                <div id="state-camera" class="phone-screen-state opacity-100 p-4 flex flex-col items-center justify-end bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1620266757940-363842f74163?q=80&w=1974&auto=format&fit=crop');">
+                                    <div class="w-16 h-16 bg-white/30 rounded-full border-4 border-white cursor-pointer mb-4"></div>
+                                </div>
+                                <!-- State 2: Processing -->
+                                <div id="state-processing" class="phone-screen-state opacity-0 flex flex-col items-center justify-center bg-slate-900 text-white p-4">
+                                    <svg class="animate-spin h-10 w-10 text-sky-400 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                    <p class="font-semibold text-lg">Analyzing Breed...</p>
+                                    <p class="text-sm text-slate-400">Powered by Gemini AI</p>
+                                </div>
+                                <!-- State 3: Results -->
+                                <div id="state-results" class="phone-screen-state opacity-0 flex flex-col items-center justify-start bg-slate-900 text-white pt-10 p-4 overflow-y-auto">
+                                    <img src="https://placehold.co/280x180/111827/38BDF8?text=Gir+Cow" alt="Gir Cow" class="rounded-lg mb-4">
+                                    <div class="w-full text-left">
+                                        <h3 class="text-2xl font-bold text-white">Gir Cow</h3>
+                                        <p class="font-semibold gradient-text">Confidence: 92%</p>
+                                        <div class="mt-4 bg-slate-800 p-3 rounded-lg">
+                                            <h4 class="font-bold text-sm text-slate-300 mb-1">Milk Yield</h4>
+                                            <p class="text-xs text-slate-400">12-15 liters/day</p>
+                                        </div>
+                                         <div class="mt-2 bg-slate-800 p-3 rounded-lg">
+                                            <h4 class="font-bold text-sm text-slate-300 mb-1">Special Traits</h4>
+                                            <p class="text-xs text-slate-400">High heat tolerance, disease resistant.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column: USPs & Features -->
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Built for the Field</h2>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Our Flutter app uses advanced AI to instantly recognize cattle and buffalo breeds from a single image. The farmer-friendly interface works in both English and Hindi.
+                        </p>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold text-white mb-4">Key Features</h3>
+                            <ul class="space-y-3 text-slate-300 text-sm">
+                                <li class="flex items-start"><span class="mr-3 text-sky-400">📷</span> Instant, AI-powered breed identification from photos.</li>
+                                <li class="flex items-start"><span class="mr-3 text-sky-400">🔄</span> Detects cross-breeds with confidence scores.</li>
+                                <li class="flex items-start"><span class="mr-3 text-sky-400">🐄</span> Provides farmer-focused data: feeding, care, and milk yield.</li>
+                                <li class="flex items-start"><span class="mr-3 text-sky-400">🇮🇳</span> Fully bilingual UI (English & Hindi).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How It Works -->
+        <section class="snap-section bg-[#050A1A]" style="background-image: radial-gradient(circle at bottom, #1E293B, #050A1A 60%);">
+            <div class="text-center p-8 max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="gradient-text">Simple Steps</span></h2>
+                <p class="text-slate-400 mb-12">Get breed insights in seconds. It's as easy as one, two, three.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div class="glass-card p-8 rounded-2xl text-center">
+                        <div class="mb-4 text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">1. Capture Image</h3>
+                        <p class="text-slate-400 text-sm">Use your phone's camera to take a clear photo of the cattle or buffalo.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="glass-card p-8 rounded-2xl text-center">
+                        <div class="mb-4 text-sky-400">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V4m0 16v-2M12 12l9-9-9 9z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">2. AI Analysis</h3>
+                        <p class="text-slate-400 text-sm">Our powerful Gemini AI model analyzes the image to identify the breed instantly.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="glass-card p-8 rounded-2xl text-center">
+                        <div class="mb-4 text-sky-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">3. Get Results</h3>
+                        <p class="text-slate-400 text-sm">Receive detailed information, including breed type, confidence score, and care tips.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: The Team -->
+        <section class="snap-section bg-[#050A1A]">
+            <div class="text-center p-8 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-10"><span class="gradient-text">Meet the Innovators</span></h2>
+                <div class="glass-card rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-semibold text-white">Team XYZ</h3>
+                    <p class="text-lg text-slate-400 mb-8">IPS College, Jaipur</p>
+                    
+                    <div id="team-members-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 text-slate-200 font-semibold text-lg mb-10">
+                        <!-- Names will be dynamically inserted here -->
+                    </div>
+
+                    <div class="border-t border-slate-700 pt-6 mt-6">
+                        <h4 class="text-xl font-semibold text-white">Mentor</h4>
+                        <p class="text-slate-300 text-lg mt-2">Disha Juneja</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // JavaScript for animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Phone Screen Animation ---
+            const states = ['state-camera', 'state-processing', 'state-results'];
+            const elements = states.map(id => document.getElementById(id));
+            let currentStateIndex = 0;
+
+            function animatePhone() {
+                elements[currentStateIndex].classList.remove('opacity-100');
+                elements[currentStateIndex].classList.add('opacity-0');
+                currentStateIndex = (currentStateIndex + 1) % states.length;
+                elements[currentStateIndex].classList.remove('opacity-0');
+                elements[currentStateIndex].classList.add('opacity-100');
+            }
+            setInterval(animatePhone, 3000);
+
+            // --- Team Member Shuffling Animation ---
+            const teamMembers = [
+                'Doresh Kumawat', 'Kumud Dhabhai', 'Bhanu Pratap Singh Rajawat',
+                'Ashutosh Goyal', 'Neha', 'Harshita'
+            ];
+            const teamGrid = document.getElementById('team-members-grid');
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            function updateTeamGrid() {
+                shuffle(teamMembers);
+                teamGrid.innerHTML = '';
+                teamMembers.forEach(member => {
+                    const span = document.createElement('span');
+                    span.textContent = member;
+                    teamGrid.appendChild(span);
+                });
+            }
+
+            function animateTeam() {
+                updateTeamGrid();
+                const randomDelay = Math.random() * (4000 - 2000) + 2000; // Random delay between 2-4 seconds
+                setTimeout(animateTeam, randomDelay);
+            }
+            
+            animateTeam(); // Start the shuffling
+        });
+    </script>
+
+</body>
+</html>
+
+
